@@ -16,7 +16,7 @@ module.exports = class {
     registerEvents() {
 
         this.reader.on('ready', (msg) => {
-            console.log("READY", msg)
+            console.log("READY!")
         });
 
         this.reader.on('message', msg => {
@@ -25,7 +25,6 @@ module.exports = class {
                 success: true,
                 message: 'message received at nsq-gateway',
                 status: 200,
-                payload: msg,
             });
 
             // got message from nsq
