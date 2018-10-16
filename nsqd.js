@@ -79,12 +79,4 @@ class QueueWriter {
     }
 }
 
-module.exports = (host, port, options) => {
-
-    if(_.isObject(writer)) {
-        return writer;
-    }
-    console.log('instantiating new nsqwriter')
-    writer = new QueueWriter(host, port, options);
-    return writer;
-};
+module.exports = QueueWriter

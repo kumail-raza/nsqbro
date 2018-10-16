@@ -13,11 +13,11 @@ const topic = 'test-topic';
 const channel = 'test-channel';
 
 
-var q = QueueWriter(nsqdHost, nsqdPort, {})
 let r = new Reader(LookupdHTTPAddresses, topic, channel);
 
 require('http').createServer((req, res) => {
-    return q.publish(topic, 'test message')
+    new QueueWriter(nsqdHost, nsqdPort, {})
+    .publish(topic, 'test message')
     .then(() => {
         res.end('done')
     })
