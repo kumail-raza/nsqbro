@@ -4,17 +4,21 @@ const nsq = require('nsqjs');
 module.exports = class {
 
     constructor(lookupdHttpAdresses, topic,channel) {
-
-        this.reader = new nsq.Reader(topic, channel, {
+        console.log('rdr',lookupdHttpAdresses, topic, channel)
+        this.reader =  new nsq.Reader(topic, channel, {
             lookupdHTTPAddresses: lookupdHttpAdresses,
             maxInFlight: 100,
-            maxAttempts: 2
-        })
+            maxAttempts: 1
+        });
         this.reader.connect();
         this.registerEvents();
     }
 
     registerEvents() {
+
+        this.reader.on('ready', (msg) => {
+            console.log("READY", msg)
+        });
 
         this.reader.on('message', msg => {
             console.log({
