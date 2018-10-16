@@ -1,16 +1,14 @@
 'use strict';
 
-const globalConfig = require('../../../config')();
 const nsq = require('nsqjs');
 module.exports = class {
-
 
     constructor(lookupdHttpAdresses, topic,channel) {
 
         this.reader = new nsq.Reader(topic, channel, {
             lookupdHTTPAddresses: lookupdHttpAdresses,
             maxInFlight: 100,
-            maxAttempts: 5
+            maxAttempts: 2
         })
         this.reader.connect();
         this.registerEvents();
