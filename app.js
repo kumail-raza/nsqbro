@@ -4,7 +4,7 @@
 let QueueWriter =  require('./nsqd');
 let Reader = require('./reader')
 // NSQD
-const nsqdHost = '40.76.70.145'
+const nsqdHost = 'localhost'
 const nsqdPort = '4150';
 
 // NSQLOOKUPD
