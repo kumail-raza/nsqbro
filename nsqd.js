@@ -26,7 +26,7 @@ class QueueWriter {
                         topic: topic
                     });
                 } else {
-                    console.log('message mublished.')
+                    console.log('message published.')
                     resolve();
                 }
             });

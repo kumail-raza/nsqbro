@@ -4,7 +4,6 @@ const nsq = require('nsqjs');
 module.exports = class {
 
     constructor(lookupdHttpAdresses, topic,channel) {
-        console.log('rdr',lookupdHttpAdresses, topic, channel)
         this.reader =  new nsq.Reader(topic, channel, {
             lookupdHTTPAddresses: lookupdHttpAdresses,
             maxInFlight: 100,

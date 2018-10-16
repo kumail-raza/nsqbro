@@ -8,7 +8,7 @@ const nsqdHost = '40.76.70.145'
 const nsqdPort = '4150';
 
 // NSQLOOKUPD
-const LookupdHTTPAddresses = ['40.76.70.145:4161']
+const LookupdHTTPAddresses = ['localhost:4161']
 const topic = 'test-topic';
 const channel = 'test-channel';
 
